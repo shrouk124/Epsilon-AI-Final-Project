@@ -232,13 +232,21 @@ num_services = sum([
 ])
 tenure_grp = get_tenure_group(tenure)
 
-col_order = [c for c in df_ref.columns if c != 'Churn']
 
+col_order = [
+    'gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure', 
+    'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 
+    'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 
+    'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod', 
+    'MonthlyCharges', 'TotalCharges', 'tenure_group', 'ChargesPerTenure', 'NumServices'
+]
+
+# 
 new_data = pd.DataFrame([[
-    gender, senior, partner, dependents, tenure,
-    phone_svc, multi_lines, internet, online_sec, online_bkp,
-    dev_protect, tech_support, stream_tv, stream_mov,
-    contract, paperless, payment, monthly_chg, total_chg,
+    gender, senior, partner, dependents, tenure, 
+    phone_svc, multi_lines, internet, online_sec, online_bkp, 
+    dev_protect, tech_support, stream_tv, stream_mov, 
+    contract, paperless, payment, monthly_chg, total_chg, 
     tenure_grp, charges_per_tenure, num_services
 ]], columns=col_order)
 
