@@ -243,12 +243,13 @@ col_order = [
 
 # 
 # تأكدي من أنواع البيانات (Data Types) قبل ما تدخليها للـ DataFrame
+# بدلاً من التحويل اليدوي، ضعي القيم مباشرة
 new_data = pd.DataFrame({
     'gender': [gender],
-    'SeniorCitizen': [int(senior)], # تأكدي إنها رقم صحيح
+    'SeniorCitizen': [senior], 
     'Partner': [partner],
     'Dependents': [dependents],
-    'tenure': [int(tenure)],
+    'tenure': [tenure],
     'PhoneService': [phone_svc],
     'MultipleLines': [multi_lines],
     'InternetService': [internet],
@@ -261,13 +262,15 @@ new_data = pd.DataFrame({
     'Contract': [contract],
     'PaperlessBilling': [paperless],
     'PaymentMethod': [payment],
-    'MonthlyCharges': [float(monthly_chg)], # تأكدي إنها float
-    'TotalCharges': [float(total_chg)],     # تأكدي إنها float
+    'MonthlyCharges': [monthly_chg], 
+    'TotalCharges': [total_chg],     
     'tenure_group': [tenure_grp],
-    'ChargesPerTenure': [float(charges_per_tenure)],
-    'NumServices': [int(num_services)]
+    'ChargesPerTenure': [charges_per_tenure],
+    'NumServices': [num_services]
 })
 
+# تأكدي أن الترتيب هو نفس ترتيب الـ columns في الـ Pipeline
+new_data = new_data[model.feature_names_in_]
 # ضيفي السطور دي للتصحيح
 st.write("---")
 st.write("بيانات المدخلات:", new_data)
