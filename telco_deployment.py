@@ -242,13 +242,31 @@ col_order = [
 ]
 
 # 
-new_data = pd.DataFrame([[
-    gender, senior, partner, dependents, tenure, 
-    phone_svc, multi_lines, internet, online_sec, online_bkp, 
-    dev_protect, tech_support, stream_tv, stream_mov, 
-    contract, paperless, payment, monthly_chg, total_chg, 
-    tenure_grp, charges_per_tenure, num_services
-]], columns=col_order)
+# تأكدي من أنواع البيانات (Data Types) قبل ما تدخليها للـ DataFrame
+new_data = pd.DataFrame({
+    'gender': [gender],
+    'SeniorCitizen': [int(senior)], # تأكدي إنها رقم صحيح
+    'Partner': [partner],
+    'Dependents': [dependents],
+    'tenure': [int(tenure)],
+    'PhoneService': [phone_svc],
+    'MultipleLines': [multi_lines],
+    'InternetService': [internet],
+    'OnlineSecurity': [online_sec],
+    'OnlineBackup': [online_bkp],
+    'DeviceProtection': [dev_protect],
+    'TechSupport': [tech_support],
+    'StreamingTV': [stream_tv],
+    'StreamingMovies': [stream_mov],
+    'Contract': [contract],
+    'PaperlessBilling': [paperless],
+    'PaymentMethod': [payment],
+    'MonthlyCharges': [float(monthly_chg)], # تأكدي إنها float
+    'TotalCharges': [float(total_chg)],     # تأكدي إنها float
+    'tenure_group': [tenure_grp],
+    'ChargesPerTenure': [float(charges_per_tenure)],
+    'NumServices': [int(num_services)]
+})
 
 # ضيفي السطور دي للتصحيح
 st.write("---")
