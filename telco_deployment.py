@@ -242,6 +242,12 @@ new_data = pd.DataFrame([[
     tenure_grp, charges_per_tenure, num_services
 ]], columns=col_order)
 
+# ضيفي السطور دي للتصحيح
+st.write("---")
+st.write("بيانات المدخلات:", new_data)
+st.write("أعمدة الموديل:", model.feature_names_in_) # دي هتوريكي الأعمدة اللي الموديل مستنيها بالظبط
+
+
 #  زر التنبؤ 
 st.markdown("<br>", unsafe_allow_html=True)
 if st.button('🔮 تنبأ باحتمالية الهجران'):
